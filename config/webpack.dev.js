@@ -74,48 +74,6 @@ module.exports = merge(common, {
     host: "0.0.0.0", // 服务启动的ip，可以让在局域网内的用户都可以访问
     port: 9000, // 开启的端口
     proxy: [
-      // 代理配置
-      {
-        context: "/api/geoskincare/",
-        target: "http://47.96.113.94:1131",
-        // target: 'https://storeservice.zero-w.cn', // 转发到url
-        changeOrigin: true, // 是否改变转发的域名
-        secure: false, // 关闭安全的设定
-      },
-      {
-        context: [
-          "/api/v2",
-          "/api/v3",
-          "/api/orderproduct",
-          "/api/member",
-          "/api/user",
-          "/api/channel",
-          "/api/store2",
-          "/api/white",
-          "/api/taobao",
-          "/api/tool",
-          "/api/brand",
-          "/api/order",
-        ],
-        // store-service-php
-        // target: 'http://47.96.113.94:10010',
-        // target: 'http://47.96.113.94:11300',
-        target: "http://127.0.0.1:9502",
-        // target: 'https://storeservice.zero-w.cn', // 转发到url
-        changeOrigin: true, // 是否改变转发的域名
-        secure: false, // 关闭安全的设定
-      },
-      {
-        context: ["/api/store_access", "/api/storeAccess"],
-        target: "http://localhost:9507",
-      },
-      {
-        context: "/api",
-        // store-service-go
-        target: "http://47.96.113.94:11299", // 测试服的 Go
-        changeOrigin: true, // 是否改变转发的域名
-        secure: false, // 关闭安全的设定
-      },
     ],
     historyApiFallback: true, // 404的时候重定向回 index.html
   },
